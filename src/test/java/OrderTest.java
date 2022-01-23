@@ -24,6 +24,16 @@ public class OrderTest {
     }
 
     @Test
+    public void correctOrder2Test() {
+        $("[type=text]").setValue("Иванов-Петров Андрей");
+        $("[type=tel]").setValue("+79111111111");
+        $(".checkbox__box").click();
+        $("button").click();
+//        sleep(2000);
+        $("[data-test-id=order-success]").shouldHave(text("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
+    }
+
+    @Test
     public void incorrectNameTest() {
         $("[type=text]").setValue("Andrew");
         $("[type=tel]").setValue("+79111111111");
